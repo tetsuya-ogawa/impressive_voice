@@ -1,0 +1,15 @@
+- provide(:title, 'イベントの編集')
+section.content-header
+  h1 イベントの編集
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 イベント内容の編集
+    = render 'form'
+
+= link_to 'Show', @event
+'|
+= link_to 'Back', events_path
+

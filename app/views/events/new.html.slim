@@ -1,0 +1,12 @@
+- provide(:title, 'イベントの追加')
+section.content-header
+  h1 イベントの追加
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 新規イベント内容の入力
+    = render 'form'
+
+= link_to 'Back', events_path

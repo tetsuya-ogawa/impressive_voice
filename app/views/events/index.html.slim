@@ -1,0 +1,28 @@
+- provide(:title ,'イベント一覧')
+h1 イベント一覧
+
+.box style="margin: 10px;"
+  .box-header
+    .box-title
+      h3 イベント一覧
+
+
+  .box-body.table-responsive.no-padding
+    table.table.table-hover
+      thead
+        tr
+          th イベント名
+          th 操作
+
+      tbody
+        - @events.each do |event|
+          tr
+            td = event.name
+            td
+              = link_to '編集',edit_event_path(event), class: 'btn btn-info btn-sm margin-right-m'
+              = link_to '削除',event, data: {:confirm => 'Are you sure?'}, method: :delete ,class: 'btn btn-danger btn-sm'
+
+
+    br
+
+= link_to 'New Event', new_event_path
