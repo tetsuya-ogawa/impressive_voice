@@ -7,7 +7,7 @@
   .box-body
     .form-group
       = f.label :member_id
-      = f.collection_select :member_id, Member.order("kana_name"), "id", "name", class: 'form-control'
+      = f.collection_select :member_id, @member_search.search, "id", "name", class: 'form-control'
 
   .box-footer.text-center
     = link_to_remove_association f, class: 'btn btn-default btn-block' do

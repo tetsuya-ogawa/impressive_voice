@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_member_search, only: [:new, :edit]
 
   def index
     @groups = Group.all
@@ -53,6 +54,10 @@ class GroupsController < ApplicationController
   private
     def set_group
       @group = Group.find(params[:id])
+    end
+
+    def set_member_search
+      @member_search = MemberSearch.new(params[:member_search])
     end
 
     def group_params
