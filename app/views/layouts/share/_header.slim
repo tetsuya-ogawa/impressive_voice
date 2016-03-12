@@ -11,3 +11,12 @@ header.main-header
     /! Navbar Right Menu
     .navbar-custom-menu
       ul.nav.navbar-nav
+
+        li.dropdown.user.user-menu
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            ul.dropdown-menu
+              li.user-body
+                .pull-right
+                  - if logged_in?
+                    = link_to 'ログアウト', logout_path, method: :delete
+                    /a.btn.btn-default.btn-flat href="#{logout_path}" サインアウト

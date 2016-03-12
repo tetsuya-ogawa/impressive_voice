@@ -1,0 +1,22 @@
+-provide(:title, "ログイン")
+
+h1 ログイン
+
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(:session, url: login_path) do |f|
+      - if logged_in?
+        = f.hidden_field :name, value: nil
+        = f.hidden_field :password, value: nil
+        = f.submit "ログアウトする", class: "btn btn-primary"
+      - else
+        .form-group
+          = f.label :name
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label :password
+          = f.password_field :password, class: 'form-control'
+
+        = f.submit "ログイン", class: "btn btn-primary"
+
+

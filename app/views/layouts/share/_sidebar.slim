@@ -44,3 +44,22 @@ aside.main-sidebar
               i.fa.fa-circle-o
                 | イベントの追加
 
+      li.treeviews.group
+        a href="#{new_group_path}"
+          i.fa.fa-users
+          span エントリー
+
+      li.treeviews.group
+        a href="#"
+          i.fa.fa-user
+          span メンバーの管理
+          i.fa.fa-angle-left.pull-right
+          ul.treeview-menu
+            li
+              a href="#{members_path}"
+                i.fa.fa-circle-o
+                  | メンバー一覧
+            li
+              a href="#{new_member_path}"
+                i.fa.fa-circle-o
+                  | メンバーの追加

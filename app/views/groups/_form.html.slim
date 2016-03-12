@@ -1,0 +1,42 @@
+= form_for @group do |f|
+  - if @group.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@group.errors.count, "error")} prohibited this event from being saved:"
+      ul
+        - @group.errors.full_messages.each do |message|
+          li = message
+
+
+  .box-body
+    .form-group
+      = f.label :event_id
+      = f.collection_select :event_id, Event.all, "id", "name"
+
+
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+
+    .form-group
+      =f.label :songs
+      #songs
+        =f.fields_for :songs do |s|
+          == render 'song_fields', f: s
+        .links
+          = link_to_add_association '曲の追加', f, :songs, class: 'btn btn-default'
+
+    .form-group
+      = f.label :players
+      #players
+        .row
+          = f.fields_for :players do |p|
+            .col-xs-4
+              == render 'player_fields', f: p
+        .links
+          = link_to_add_association f, :players, class: 'btn btn-default btn-block' do
+            i.fa.fa-plus-square.nested_form.add
+
+
+    .box-footer
+      .actions
+        = f.submit :submit, class: "btn btn-primary"

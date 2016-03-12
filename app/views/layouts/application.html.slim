@@ -15,6 +15,9 @@ html
       = render 'layouts/share/sidebar'
 
       .content-wrapper
+        - if flash[:alert]
+          .alert.alert-danger
+            = flash.now[:alert]
         = yield
 
         = render 'layouts/share/footer'
@@ -24,7 +27,7 @@ html
     /! REQUIRED JS SCRIPTS
     = javascript_include_tag "application"
 
-    javascript:
+    /javascript:
       $(function(){
         addActiveToAction("#{controller.action_name}");
         addActiveToController("#{controller.controller_name}");

@@ -1,0 +1,16 @@
+p#notice = notice
+
+p
+  strong Event:
+  = @group.event_id
+p
+  strong Name:
+  = @group.name
+p
+  strong Player:
+  - @players.each do |player|
+    = Member.find(player.member_id).name
+
+= link_to 'Edit', edit_group_path(@group)
+'|
+= link_to 'Back', groups_path

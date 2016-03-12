@@ -1,10 +1,30 @@
 - provide(:title ,'イベント詳細')
-p#notice = notice
+section.content-header
+  h1 エントリーグループ
 
-p
-  strong Name:
-  = @event.name
+section.content
+  .box.box-primary style="margin: 10px;"
+    .box-header
+      .box-title
+        h3  #{@event.name} - エントリーグループ 　　　　　　　　総時間 #{total_time(@event)} 分
 
-= link_to 'Edit', edit_event_path(@event)
-'|
-= link_to 'Back', events_path
+    .box-body.table-responsive.no-padding
+      table.table.table-hover
+        thead
+          tr
+            th グループ名
+            th 時間
+            th 操作
+
+        tbody
+          - @groups.each do |group|
+            tr
+              td
+                = link_to group.name, group_path(group)
+              td
+                strong = group.songs.sum("time")
+                strong 　分
+              td
+                = link_to '編集',edit_group_path(group), class: 'btn btn-info btn-sm margin-right-m'
+                = link_to '削除', group, data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
+      br

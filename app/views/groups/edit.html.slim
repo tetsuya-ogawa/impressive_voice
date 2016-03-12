@@ -1,0 +1,15 @@
+- provide(:title, 'エントリー')
+section.content-header
+  h1 グループの編集
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 グループの内容の編集
+    = render 'form'
+
+    = link_to 'Show', @group
+
+= link_to 'Back', groups_path
+

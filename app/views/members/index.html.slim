@@ -1,0 +1,37 @@
+- provide(:title, 'メンバー一覧')
+h1 メンバー一覧
+section.content
+  .box.box.default style="margin: 10px;"
+    .box-header
+      .box-title
+        h3 メンバー一覧
+
+
+    .box-body.table-responsive.no-padding
+      table.table.table-hover
+        thead
+          tr
+            th メンバー名
+            th メンバー名(かな)
+            th 入学年度
+            th 性別
+            th 操作
+
+        tbody
+          - @members.each do |member|
+            tr
+              td
+                = link_to member.name, member_path(member)
+              td
+                = member.kana_name
+              td
+                = member.year
+              td
+                = gender_displayed(member.gender)
+              td
+                = link_to '編集',edit_member_path(member), class: 'btn btn-info btn-sm margin-right-m'
+                = link_to '削除',member, data: {:confirm => 'Are you sure?'}, method: :delete ,class: 'btn btn-danger btn-sm'
+
+
+      br
+

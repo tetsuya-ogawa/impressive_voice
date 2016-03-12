@@ -11,12 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224093917) do
+ActiveRecord::Schema.define(version: 20160305105258) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "held_day"
+    t.datetime "deadline"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.integer  "event_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "member_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "kana_name"
+    t.integer  "gender"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "name"
+    t.float    "time"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

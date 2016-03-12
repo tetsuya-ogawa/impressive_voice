@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  protect_from_forgery :except => [:destory]
+  before_action :set_group, only: [:show]
 
   # GET /events
   # GET /events.json
@@ -68,8 +68,12 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+    def set_group
+      @groups = Group.where(event_id: params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name)
+      params.require(:event).permit(:name,:held_day,:deadline)
     end
 end

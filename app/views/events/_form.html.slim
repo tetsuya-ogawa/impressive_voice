@@ -10,7 +10,15 @@
   .box-body
     .form-group
       = f.label :name
-      = f.text_field :name, class: "form-control"
+      = f.text_field:name, class: "form-control"
+
+    .form-group
+      = f.label :held_day
+      = f.date_select :held_day, class: "form-control"
+
+    .form-group
+      = f.label :deadline
+      = f.date_select :deadline, class: "form-control"
 
     .box-footer
       .actions

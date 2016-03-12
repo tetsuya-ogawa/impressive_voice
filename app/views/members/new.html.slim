@@ -1,0 +1,12 @@
+- provide(:title, 'メンバーの追加')
+section.content-header
+  h1 メンバーの追加
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 追加メンバーの入力
+    = render 'form'
+
+    = link_to 'Back', members_path
