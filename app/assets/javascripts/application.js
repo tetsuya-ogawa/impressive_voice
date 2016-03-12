@@ -12,7 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require admin-lte/bootstrap/js/bootstrap
 //= require admin-lte/dist/js/app.js
 //= require cocoon
 //= require_tree .
+
+
+$(function() {
+    $('.date').datepicker({
+        dateformat: 'yyyy/mm/dd',
+        language: 'ja'     // カレンダー日本語化のため
+    });
+});
