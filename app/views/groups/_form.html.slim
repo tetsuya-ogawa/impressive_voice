@@ -8,14 +8,17 @@
 
 
   .box-body
+
     .form-group
       = f.label :event_id
-      = f.collection_select :event_id, Event.all, "id", "name"
-
+      = f.collection_select :event_id, Event.all, "id", "name",{},class: 'form-control'
 
     .form-group
       = f.label :name
       = f.text_field :name, class: "form-control"
+
+    /input id="number_person" type="text"
+    /input id="get" type="button" value="人数設定"
 
     .form-group
       =f.label :songs
@@ -33,10 +36,13 @@
             .col-xs-4
               == render 'player_fields', f: p
         .links
-          = link_to_add_association f, :players, class: 'btn btn-default btn-block' do
-            i.fa.fa-plus-square.nested_form.add
+          = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do
+            | プレイヤーの追加
+            /i.fa.fa-plus-square.nested_form.add
 
 
     .box-footer
       .actions
         = f.submit :submit, class: "btn btn-primary"
+
+

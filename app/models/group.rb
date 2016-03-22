@@ -6,4 +6,6 @@ class Group < ActiveRecord::Base
 
   has_many :songs, dependent: :destroy
   accepts_nested_attributes_for :songs, allow_destroy: true
+
+  #validates :name
 end
