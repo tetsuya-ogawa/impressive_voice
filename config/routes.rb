@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :members
   resources :groups
-  resources :events
+
+  resources :events do
+    resource :programs, module: :events
+  end
+
   resources :users
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
