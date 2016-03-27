@@ -61,7 +61,7 @@ class GroupsController < ApplicationController
     end
 
     def group_params
-      params.require(:group).permit(:event_id, :name,:member_id, :number_person,
+      params.require(:group).permit(:event_id, :name,:member_id, :number_person,:order,
                                     players_attributes: [:id,:group_id,:member_id,:_destroy],
                                     songs_attributes: [:id,:name,:group_id,:time,:_destroy])
     end

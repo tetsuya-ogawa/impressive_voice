@@ -1,4 +1,8 @@
 class Group < ActiveRecord::Base
+
+  include RankedModel
+  ranks :order
+
   belongs_to :event
 
   has_many :players, dependent: :destroy

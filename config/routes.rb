@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :groups
 
   resources :events do
-    resource :programs, module: :events
+    resource :programs, module: :events do
+      put :sort
+    end
   end
 
   resources :users
