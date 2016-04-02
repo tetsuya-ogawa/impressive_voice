@@ -5,6 +5,8 @@ class Group < ActiveRecord::Base
 
   belongs_to :event
 
+  #has_many :performance_groups, :class_name => 'Events::PerformanceGroup'
+
   has_many :players, dependent: :destroy
   accepts_nested_attributes_for :players, allow_destroy: true
 
