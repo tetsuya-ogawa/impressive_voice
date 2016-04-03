@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users
+  #resources :users
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

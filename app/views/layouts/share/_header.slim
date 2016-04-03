@@ -17,6 +17,8 @@ header.main-header
             ul.dropdown-menu
               li.user-body
                 .pull-right
-                  /- if logged_in?
-                    = link_to 'ログアウト', logout_path, method: :delete
+                  - if user_signed_in?
+                    /strong = link_to current_user.email, pages_show_path
+                    = link_to 'プロフィール変更', edit_user_registration_path
+                    = link_to 'ログアウト', destroy_user_session_path, method: :delete
                     /a.btn.btn-default.btn-flat href="#{logout_path}" サインアウト
