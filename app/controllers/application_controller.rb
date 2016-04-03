@@ -4,15 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   protect_from_forgery except: [:sort,:destroy]
 
-  include SessionsHelper
-  #before_action :authenticate_user!
+  #include SessionsHelper
+  before_action :authenticate_user!
 
   private
-    def authenticate_user!
-      unless logged_in?
-        flash[:alert] = 'ログインしてください'
-        redirect_to login_path
-      end
-    end
+    #def authenticate_user!
+    #  unless logged_in?
+    #    flash[:alert] = 'ログインしてください'
+    #    redirect_to login_path
+    #  end
+    #end
 
 end

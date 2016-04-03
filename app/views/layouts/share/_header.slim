@@ -17,6 +17,6 @@ header.main-header
             ul.dropdown-menu
               li.user-body
                 .pull-right
-                  - if logged_in?
+                  /- if logged_in?
                     = link_to 'ログアウト', logout_path, method: :delete
                     /a.btn.btn-default.btn-flat href="#{logout_path}" サインアウト
