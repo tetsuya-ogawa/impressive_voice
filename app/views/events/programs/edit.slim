@@ -1,0 +1,17 @@
+.box-body
+  h3 プログラム作成
+  p バンドの位置をドラッグ&ドロップで調整できます。
+  .table-responsive
+    table.table.table-hover.table-sortable
+      thead
+        tr
+          th バンド名
+          th メンバー
+      tbody
+        - @groups.each do |group|
+         tr.item(data = { model_name: group.class.name.underscore, update_url: sort_event_programs_path(group.event.id) })
+           td = link_to "#{group.name}", group_path(group)
+
+           - group.players.each do |player|
+            td = player.member.name
+

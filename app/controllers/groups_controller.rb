@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_member_search, only: [:new, :edit]
 
   def index
     @groups = Group.all
@@ -55,8 +56,12 @@ class GroupsController < ApplicationController
       @group = Group.find(params[:id])
     end
 
+    def set_member_search
+      @member_search = MemberSearch.new(params[:member_search])
+    end
+
     def group_params
-      params.require(:group).permit(:event_id, :name,:member_id,
+      params.require(:group).permit(:event_id, :name,:member_id, :number_person,:order,
                                     players_attributes: [:id,:group_id,:member_id,:_destroy],
                                     songs_attributes: [:id,:name,:group_id,:time,:_destroy])
     end

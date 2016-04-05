@@ -32,6 +32,15 @@ gem 'cocoon'
 gem 'kakurenbo-puti'
 gem 'bcrypt'
 
+gem 'virtus'
+
+gem 'jquery-turbolinks'
+gem 'select2-rails'
+
+gem 'ranked-model'
+
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

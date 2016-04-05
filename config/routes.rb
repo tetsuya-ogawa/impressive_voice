@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+
+  devise_for :users
   get 'sessions/new'
 
   get 'users/new'
 
   resources :members
   resources :groups
-  resources :events
-  resources :users
+
+  resources :events do
+    resource :programs, module: :events do
+      put :sort
+    end
+  end
+
+  #resources :users
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'

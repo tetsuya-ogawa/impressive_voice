@@ -2,7 +2,7 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = Member.all
+    @members = Member.order(:kana_name)
   end
 
   def show
@@ -17,10 +17,9 @@ class MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
-
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to @member, notice: 'メンバーの登録に成功しました' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
