@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    title #{yield(:title)}
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /
+    = stylesheet_link_tag "application"
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /
+    link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" /
+
+
+  body
+    = render 'layouts/share/public_header'
+    = render 'layouts/share/slide_in'
+
+    /= link_to "Menu", {},id: "simple-menu-button"
+
+
+
+    - if flash[:alert]
+      .alert.alert-danger
+        = flash.now[:alert]
+
+        = yield
+
+        = render 'layouts/share/footer'
+
+    /! REQUIRED JS SCRIPTS
+    = javascript_include_tag "application"
+
+javascript:
+  $('#triggerLink').sidr({
+    name: 'navigation'
+  });
+
+  $(document).ready(function () {
+    $('#menu_btn').sidr();
+  });

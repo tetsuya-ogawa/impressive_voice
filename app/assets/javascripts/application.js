@@ -17,6 +17,7 @@
 //= require admin-lte/dist/js/app.js
 //= require cocoon
 //= require select2
+//= require jquery.sidr.min
 //= require_tree .
 
 
