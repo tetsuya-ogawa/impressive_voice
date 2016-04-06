@@ -22,9 +22,9 @@ html
       .alert.alert-danger
         = flash.now[:alert]
 
-        = yield
+    = yield
 
-        = render 'layouts/share/footer'
+    = render 'layouts/share/footer'
 
     /! REQUIRED JS SCRIPTS
     = javascript_include_tag "application"

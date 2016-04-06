@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery except: [:sort,:destroy]
 
   #include SessionsHelper
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   private
     #def authenticate_user!

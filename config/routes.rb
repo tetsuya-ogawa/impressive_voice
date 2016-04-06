@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'home' => 'home#index'
 
   devise_for :users, :controllers => {
-      :registrations => 'users/registrations'
+      :registrations => 'users/registrations',
+      :sessions => 'users/sessions'
   }
   get 'sessions/new'
 

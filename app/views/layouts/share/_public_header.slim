@@ -3,4 +3,7 @@ header.navbar
     #logo = link_to "ImpressiveVoice", home_path
     ul.header-right
       li = link_to "Top", home_path
-      ll = link_to "About"
+      - if user_signed_in?
+        li = link_to 'ログアウト', destroy_user_session_path, method: :delete
+      - else
+        li = link_to 'ログイン', new_user_session_path
