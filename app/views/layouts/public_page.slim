@@ -12,7 +12,8 @@ html
 
   body
     = render 'layouts/share/public_header'
-    = render 'layouts/share/slide_in'
+    - if user_signed_in?
+      = render 'layouts/share/slide_in'
 
     /= link_to "Menu", {},id: "simple-menu-button"
 
