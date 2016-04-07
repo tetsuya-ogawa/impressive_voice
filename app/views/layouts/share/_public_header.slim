@@ -1,8 +1,8 @@
 header.navbar
   .container
-    #logo = link_to "ImpressiveVoice", home_path
+    #logo = link_to "Acood", home_path
     ul.header-right
-      li = link_to "Top", home_path
+      /li = link_to "Top", home_path
       - if user_signed_in?
         li = link_to 'ログアウト', destroy_user_session_path, method: :delete
       - else
