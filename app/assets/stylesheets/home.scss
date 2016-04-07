@@ -28,10 +28,6 @@ a:hover {
   padding-right: 15px;
 }
 
-.header-image{
-  width: 100%;
-  height: 40%;
-}
 
 /* フォント ================================ */
 h1, h2, h3, h4, h5, h6 {
@@ -104,4 +100,28 @@ footer {
 footer .small {
   float: left;
   font-size: 14px;
+}
+
+/* トップページ ================================ */
+.relative {
+  position: relative;
+  //width: 300px;
+}
+
+.absolute-logo {
+  position: absolute;
+  left: 5%;
+  top: 10%;
+}
+
+#survise-name{
+  font-size: 500%;
+  color: #ffffff;
+  font-family: fantasy;
+  font-weight: 600;
+}
+
+.header-image{
+  width: 100%;
+  height: 40%;
 }

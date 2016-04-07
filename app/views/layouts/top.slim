@@ -13,12 +13,15 @@ html
   body
 
     header
-      = image_tag 'header.jpg', :class => "header-image"
+      .relative
+        = image_tag 'header.jpg', :class => "header-image"
+        p.absolute-logo#survise-name Acood
 
-    - if flash[:alert]
-      .alert.alert-danger
-        = flash.now[:alert]
+      - if flash[:alert]
+        .alert.alert-danger
+          = flash.now[:alert]
 
+      = yield
 
       = render 'layouts/share/footer'
 
