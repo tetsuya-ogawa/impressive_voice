@@ -11,19 +11,20 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require jquery-ui
+//= require jquery_ujs
 //= require admin-lte/bootstrap/js/bootstrap
 //= require admin-lte/dist/js/app.js
 //= require cocoon
 //= require select2
+//= require jquery.sidr.min
 //= require_tree .
 
 
 $(function() {
     $('.date').datepicker({
-        dateformat: 'yyyy/mm/dd',
-        language: 'ja'
+        format: 'yy/mm/dd',
+        locale: 'ja'
     });
 });
 

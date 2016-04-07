@@ -14,7 +14,7 @@ class Events::ProgramsController < ApplicationController
   end
 
   private
-  
+
     def count_before_events_groups(group)
       before_events_groups = 0
       #events = Event.where('id < ?', group.event_id)
