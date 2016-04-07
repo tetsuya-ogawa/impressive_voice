@@ -8,6 +8,11 @@ class HomeController < ApplicationController
   end
 
   def top
+    if user_signed_in?
+      redirect_to home_path
+    else
+      render :layout => 'top'
+    end
   end
 
 end
