@@ -1,3 +1,26 @@
+.row
+  .col-sm-6.margin-top-m
+    .box.box-solid
+      h2.box-header.with-border Acood とは
+      .box-body
+        p ImpressiveVoiceの所属メンバーによる交流サイトです。
+        p 我々が開催するライブへのエントリーなどの機能も兼ね備えてます。
+        p 他の様々な機能も実装予定
 
-.center
+  .col-sm-6.margin-top-m
+    .row
+      .col-sm-6
+        h2 ログイン
+        = form_tag(user_session_path) do
+          h5 メールアドレス
+          .form-group
+            p = text_field_tag 'user[email]', "", {class:  'form-control'}
+          h5 パスワード
+          p = password_field_tag "user[password]", "",{class:  'form-control'}
+          p = submit_tag 'ログイン'
+      .col-sm-6
+
+
+
+/.center
   = link_to 'ログインする',home_path, {class: "top-login"}
