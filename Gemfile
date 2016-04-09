@@ -53,6 +53,7 @@ gem 'devise'
 
 group :production do
   gem 'pg'
+  gem 'therubyracer'
 end
 
 group :development, :test do

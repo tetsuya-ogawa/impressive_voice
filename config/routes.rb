@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {
-      :registrations => 'users/registrations'
-  }
-  get 'sessions/new'
+  root 'home#top'
+  get 'home' => 'home#home'
 
-  get 'users/new'
+  namespace :home do
+    resources :entries
+    resources :events
+  end
+
+  devise_for :users, :controllers => {
+      :registrations => 'users/registrations',
+      :sessions => 'users/sessions'
+  }
+
+  get 'dashboard' => 'dashboard#index'
 
   resources :members
   resources :groups
@@ -16,17 +24,21 @@ Rails.application.routes.draw do
     end
   end
 
+
+  #get 'sessions/new'
+  #get 'users/new'
+
   #resources :users
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
+  #get    'login'   => 'sessions#new'
+  #post   'login'   => 'sessions#create'
+  #delete 'logout'  => 'sessions#destroy'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'dashboard#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
