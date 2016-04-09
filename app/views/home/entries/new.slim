@@ -1,0 +1,12 @@
+- provide(:title, 'エントリー')
+section.content-header
+  h1 エントリー
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 グループの内容の入力
+    = render 'form' , action: 'create'
+
+    = link_to 'Back', root_path
