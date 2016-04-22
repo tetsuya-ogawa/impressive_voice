@@ -21,7 +21,7 @@ section.content
           - @members.each do |member|
             tr
               td
-                = link_to member.name, member_path(member)
+                = link_to member.name, admin_member_path(member)
               td
                 = member.kana_name
               td
@@ -29,8 +29,8 @@ section.content
               td
                 = gender_displayed(member.gender)
               td
-                = link_to '編集',edit_member_path(member), class: 'btn btn-info btn-sm margin-right-m'
-                = link_to '削除',member, data: {:confirm => 'Are you sure?'}, method: :delete ,class: 'btn btn-danger btn-sm'
+                = link_to '編集',edit_admin_member_path(member), class: 'btn btn-info btn-sm margin-right-m'
+                = link_to '削除',admin_member_path(member), data: {:confirm => 'Are you sure?'}, method: :delete ,class: 'btn btn-danger btn-sm'
 
 
       br

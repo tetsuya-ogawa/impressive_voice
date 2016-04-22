@@ -7,8 +7,4 @@ section.content
     .box-header.with-border
       .box-title
         h3 メンバーの編集
-    = render 'form'
-
-    = link_to 'Show', @member
-'|
-= link_to 'Back', members_path
+    = render 'form', action: 'update'

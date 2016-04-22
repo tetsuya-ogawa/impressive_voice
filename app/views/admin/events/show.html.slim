@@ -20,11 +20,11 @@ section.content
           - @groups.each do |group|
             tr
               td
-                = link_to group.name, group_path(group)
+                = link_to group.name, admin_group_path(group)
               td
                 strong = group.songs.sum("time")
                 strong 　分
               td
-                = link_to '編集',edit_group_path(group), class: 'btn btn-info btn-sm margin-right-m'
-                = link_to '削除', group, data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
+                = link_to '編集',edit_admin_group_path(group), class: 'btn btn-info btn-sm margin-right-m'
+                = link_to '削除', admin_group_path(group), data: {:confirm => 'Are you sure?'}, method: :delete, class: 'btn btn-danger btn-sm'
       br
