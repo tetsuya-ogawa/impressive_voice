@@ -1,4 +1,5 @@
-class MembersController < ApplicationController
+
+class Admin::MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +20,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'メンバーの登録に成功しました' }
+        format.html { redirect_to admin_member_path(@member), notice: 'メンバーの登録に成功しました' }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
@@ -32,7 +33,7 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.html { redirect_to admin_member_path(@member), notice: 'Member was successfully updated.' }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }
@@ -45,7 +46,7 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      format.html { redirect_to admin_members_path, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

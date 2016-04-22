@@ -7,6 +7,4 @@ section.content
     .box-header.with-border
       .box-title
         h3 追加メンバーの入力
-    = render 'form'
-
-    = link_to 'Back', members_path
+    = render 'form', action: 'create'

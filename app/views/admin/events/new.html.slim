@@ -7,6 +7,5 @@ section.content
     .box-header.with-border
       .box-title
         h3 新規イベント内容の入力
-    = render 'form'
+    = render 'form', action: 'create'
 
-= link_to 'Back', events_path

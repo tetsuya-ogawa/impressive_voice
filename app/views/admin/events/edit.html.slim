@@ -7,9 +7,6 @@ section.content
     .box-header.with-border
       .box-title
         h3 イベント内容の編集
-    = render 'form'
+    = render 'form', action: 'update'
 
-= link_to 'Show', @event
-'|
-= link_to 'Back', events_path
 
