@@ -1,4 +1,5 @@
-class Events::ProgramsController < ApplicationController
+
+class Admin::Events::ProgramsController < ApplicationController
   def edit
     program_init
     @groups = Group.where(event_id: params[:event_id]).rank(:order)

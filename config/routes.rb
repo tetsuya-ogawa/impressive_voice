@@ -13,14 +13,16 @@ Rails.application.routes.draw do
       :sessions => 'users/sessions'
   }
 
-  get 'dashboard' => 'dashboard#index'
+  namespace :admin do
+    root 'dashboard#index'
 
-  resources :members
-  resources :groups
+    resources :members
+    resources :groups
 
-  resources :events do
-    resource :programs, module: :events do
-      put :sort
+    resources :events do
+      resource :programs, module: :events do
+        put :sort
+      end
     end
   end
 
