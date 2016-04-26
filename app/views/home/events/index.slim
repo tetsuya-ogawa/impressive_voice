@@ -1,2 +1,22 @@
-- @events.each do |event|
-  p = link_to event.name, home_event_path(event)
+section.content
+  div 開催予定イベント
+  .box.box-primary
+    .box-header
+      .box-title
+        h4  エントリーグループの確認
+
+    .box-body.table-responsive.no-padding
+      table.table.table-hover
+        thead
+          tr
+            th イベント名
+            th 総時間
+
+        tbody
+          - @events.each do |event|
+            tr
+              td = link_to event.name, home_event_path(event)
+              /= link_to group.name, home_group_path(group)
+              td
+                strong = event.songs.sum("time")
+                strong 　分

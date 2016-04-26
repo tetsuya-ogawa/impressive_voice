@@ -16,7 +16,7 @@ class Home::EntriesController < ApplicationController
     @entry = Group.new(entries_params)
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to home_entries_path, notice: 'エントリーが完了しました.' }
+        format.html { redirect_to home_event_path(@entry.event), notice: 'エントリーが完了しました.' }
         format.json { render :index, status: :created, location: @entry }
       else
         format.html { render :new }

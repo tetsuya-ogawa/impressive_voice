@@ -5,11 +5,10 @@ header.navbar
     </a>
     /= link_to 'saa','#navigation', id: 'triggerLink'
 
-
   #logo = link_to "Acood", home_path
   ul.header-right
     /li = link_to "Top", home_path
     - if user_signed_in?
-      li = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    - else
+      li = link_to "ログアウト", destroy_user_session_path, method: :delete
+    /- else
       li = link_to 'ログイン', new_user_session_path
