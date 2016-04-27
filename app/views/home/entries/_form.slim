@@ -39,6 +39,9 @@
           = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do
             | プレイヤーの追加
 
+    .form-group
+      p 備考
+      = f.text_area :note, {class: "form-control", placeholder: "備考欄"}
 
     .box-footer
       .actions
