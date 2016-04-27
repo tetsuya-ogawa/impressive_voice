@@ -26,14 +26,14 @@
         =f.fields_for :songs do |s|
           == render 'song_fields', f: s
         .links
-          = link_to_add_association '曲の追加', f, :songs, class: 'btn btn-default'
+          = link_to_add_association '曲の追加', f, :songs, class: 'btn btn-default btn-block'
 
     .form-group
       = f.label :players
       #players
         .row
           = f.fields_for :players do |p|
-            .col-xs-4
+            .col-sm-4
               == render 'player_fields', f: p
         .links
           = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do
@@ -42,6 +42,6 @@
 
     .box-footer
       .actions
-        = f.submit :submit, class: "btn btn-primary"
+        = f.submit 'エントリー', class: "btn btn-primary"
 
 
