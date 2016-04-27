@@ -1,0 +1,26 @@
+- provide(:title ,'イベント詳細')
+
+section.content
+  div エントリーグループ
+  .box.box-primary
+    .box-header
+      .box-title
+        h4  #{@event.name}
+
+    .box-body.table-responsive.no-padding
+      table.table.table-hover
+        thead
+          tr
+            th グループ名
+            th 時間
+
+        tbody
+          - @groups.each do |group|
+            tr
+              td
+                = group.name
+                small style="color: #888;" = " ※ バンド枠" if group.band?
+                /= link_to group.name, home_group_path(group)
+              td
+                strong = group.songs.sum("time")
+                strong 　分

@@ -1,15 +1,14 @@
 header.navbar
   .slide-menu
-    <a id="triggerLink" href="#navigation" style="font-size: 33px;color: white;">
+    <a id="triggerLink" href="#navigation" style="font-size: 33px;color: #ccc;">
       <i class="fa fa-navicon slide-icon"></i>
     </a>
     /= link_to 'saa','#navigation', id: 'triggerLink'
-
 
   #logo = link_to "Acood", home_path
   ul.header-right
     /li = link_to "Top", home_path
     - if user_signed_in?
-      li = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    - else
+      li = link_to "ログアウト", destroy_user_session_path, method: :delete
+    /- else
       li = link_to 'ログイン', new_user_session_path

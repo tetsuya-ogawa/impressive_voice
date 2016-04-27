@@ -9,6 +9,7 @@ class HomeController < ApplicationController
 
   def top
     if user_signed_in?
+      @current_user = current_user
       redirect_to home_path
     else
       render :layout => 'top'

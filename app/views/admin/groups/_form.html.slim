@@ -33,7 +33,7 @@
       #players
         .row
           = f.fields_for :players do |p|
-            .col-xs-4
+            .col-sm-4
               == render 'player_fields', f: p
         .links
           = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do

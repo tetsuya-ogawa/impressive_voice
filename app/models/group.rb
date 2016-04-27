@@ -14,4 +14,12 @@ class Group < ActiveRecord::Base
   accepts_nested_attributes_for :songs, allow_destroy: true
 
   #validates :name
+
+  def band?
+    if self.songs.count > 1
+      true
+    else
+      false
+    end
+  end
 end
