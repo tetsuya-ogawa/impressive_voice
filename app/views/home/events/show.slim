@@ -17,7 +17,9 @@ section.content
         tbody
           - @groups.each do |group|
             tr
-              td = group.name
+              td
+                = group.name
+                small style="color: #888;" = " ※ バンド枠" if group.band?
                 /= link_to group.name, home_group_path(group)
               td
                 strong = group.songs.sum("time")
