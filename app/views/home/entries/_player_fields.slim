@@ -2,7 +2,7 @@
   .entry-forms
     .form-group
       = f.label :member_id
-      = f.collection_select :member_id, @member_search.search, "id", "name",{}, class: 'form-control'
+      = f.collection_select :member_id, @member_search.search, "id", "name", {prompt: 'メンバーの選択'}, class: 'form-control'
       /p = f.collection_select :member_id, @member_search.search, "id", "name",{}, class: 'search form-control'
 
     = link_to_remove_association f, class: 'btn btn-default btn-block entry-forms-delete' do
