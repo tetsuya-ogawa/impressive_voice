@@ -21,7 +21,7 @@ class Home::MembersController < ApplicationController
 
   def create
     @member = Member.new(member_params)
-    #@member.user_id = current_user.id
+    @member.user_id = current_user.id
     respond_to do |format|
       if @member.save
         format.html { redirect_to home_member_path(@member), notice: 'メンバーの登録に成功しました' }
