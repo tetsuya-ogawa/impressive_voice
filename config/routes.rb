@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :home do
     resources :entries
     resources :events
+    resources :members
   end
 
   devise_for :users, :controllers => {

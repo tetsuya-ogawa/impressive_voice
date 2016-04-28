@@ -1,0 +1,20 @@
+p#notice = notice
+
+section.content-header
+  h2 メンバーの詳細
+section.content
+
+  table.table
+    tr
+      th 氏名
+      td = @member.name
+    tr
+      th 氏名(かな)
+      td = @member.kana_name
+    tr
+      th 入学年度
+      td = @member.year
+    tr
+      th 性別
+      td = gender_displayed @member
+

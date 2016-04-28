@@ -1,0 +1,10 @@
+- provide(:title, 'メンバーの編集')
+section.content-header
+  h3 メンバーの編集
+
+section.content
+  .box.box-default
+    .box-header.with-border
+      .box-title
+        h3 メンバーの編集
+    = render 'form', action: 'update'

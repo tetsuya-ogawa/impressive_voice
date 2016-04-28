@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404103612) do
+ActiveRecord::Schema.define(version: 20160427133637) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160404103612) do
     t.integer  "member_id"
     t.integer  "number_person"
     t.integer  "order"
+    t.text     "note"
   end
 
   create_table "members", force: :cascade do |t|
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160404103612) do
     t.datetime "updated_at", null: false
     t.string   "kana_name"
     t.integer  "gender"
+    t.integer  "user_id"
   end
 
   create_table "players", force: :cascade do |t|
