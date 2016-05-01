@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      member: サークル員
+    attributes:
+      member:
+        name: 氏名
+        kana_name: 氏名(かな)
+        year: 入学年度
+        gender: 性別

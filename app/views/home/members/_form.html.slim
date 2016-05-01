@@ -1,7 +1,7 @@
 = form_for @member, url: {controller: 'home/members', action: action} do |f|
   - if @member.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@member.errors.count, "error")} prohibited this event from being saved:"
+      /h2 = "#{pluralize(@member.errors.count, "error")} prohibited this event from being saved:"
       ul
         - @member.errors.full_messages.each do |message|
           li = message
@@ -10,15 +10,15 @@
   .box-body
     .form-group
       = f.label :name
-      = f.text_field :name, class: "form-control"
+      = f.text_field :name, class: "form-control", placeholder: "例) 印母医太郎"
 
     .form-group
       = f.label :kana_name
-      = f.text_field :kana_name, class: "form-control"
+      = f.text_field :kana_name, class: "form-control", placeholder: "例) いんぼいたろう"
 
     .form-group
       = f.label :year
-      = f.number_field :year, class: "form-control"
+      = f.number_field :year, class: "form-control", placeholder: "例) 15"
 
     .form-inline
       = f.label :gender, style: 'display:block;'

@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      song: 曲
+    attributes:
+      song:
+        name: 曲名
+        time: 曲の長さ

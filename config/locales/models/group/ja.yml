@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      group: バンド
+    attributes:
+      group:
+        name: バンド名
+        event_id: エントリーするイベント
+        member_id: メンバー
+        note: 備考

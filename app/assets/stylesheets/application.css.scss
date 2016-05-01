@@ -39,3 +39,34 @@
 .user-sign{
   margin: 15px;
 }
+
+/* form ==============================*/
+
+#error_explanation {
+  width: 100%;
+  background-color: #FF5454;
+  color: red;
+  border-color: #FF5454;
+  ul {
+    color: red;
+    margin-top: 10px;
+  }
+  li {
+    color: white;
+  }
+}
+
+.field_with_errors {
+  @extend .form-error;
+}
+
+.form-error{
+  display: block;
+  background-color: white;
+  label {
+    color: red;
+  }
+  .form-control {
+    border-color: red;
+  }
+}
