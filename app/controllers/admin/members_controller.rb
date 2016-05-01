@@ -1,5 +1,5 @@
 
-class Admin::MembersController < ApplicationController
+class Admin::MembersController < AdminController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index

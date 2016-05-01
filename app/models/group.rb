@@ -13,7 +13,10 @@ class Group < ActiveRecord::Base
   has_many :songs, dependent: :destroy
   accepts_nested_attributes_for :songs, allow_destroy: true
 
-  #validates :name
+  validates :name, presence: true
+  validates :event_id, presence: true
+
+
 
   def band?
     if self.songs.count > 1

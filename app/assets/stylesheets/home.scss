@@ -1,6 +1,7 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 /* 共通レイアウト ================================ */
 body {
   color: #364a4d;
@@ -92,7 +93,7 @@ p {
 .header-right li {
   line-height: 65px;
   padding: 0 18px;
-  float: left;
+  //float: left; ドロップダウンがよく動かない
   color: white;
 }
 .slide-menu{
@@ -155,3 +156,5 @@ footer .small {
 .top-footer{
   background-color: #ccc;
 }
+
+

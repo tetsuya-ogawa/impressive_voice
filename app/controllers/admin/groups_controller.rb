@@ -1,5 +1,5 @@
 
-class Admin::GroupsController < ApplicationController
+class Admin::GroupsController < AdminController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   before_action :set_member_search, only: [:new, :edit]
 

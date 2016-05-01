@@ -1,5 +1,5 @@
 
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < AdminController
   def index
     @events = Event.all
   end

@@ -1,5 +1,5 @@
 
-class Admin::EventsController < ApplicationController
+class Admin::EventsController < AdminController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_group, only: [:show]
 

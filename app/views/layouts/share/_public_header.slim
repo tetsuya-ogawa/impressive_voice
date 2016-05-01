@@ -7,8 +7,34 @@ header.navbar
 
   #logo = link_to "Acood", home_path
   ul.header-right
-    /li = link_to "Top", home_path
-    - if user_signed_in?
+    ul.dropdown
+      li
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          i.fa.fa-caret-down style="margin-right: 5px;"
+          = current_user.name
+        </a>
+        ul.dropdown-menu style="left: -20px; width: 160px;"
+          li
+            = link_to 'ユーザー編集', edit_user_registration_path
+            = link_to '管理画面へ', admin_root_path if current_user_admin?
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete
+    /li.dropdown.user.user-menu
+      /= link_to current_user.name, "#", {class: 'dropdown-toggle'}
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        span.hidden-xs = current_user.name
+      </a>
+      ul.dropdown-menu
+        li.user-header
+        li.user-body
+          .row
+            .col-xs-4
+              = link_to 'ユーザー編集', "#"
+            .col-xs-4
+              = link_to '管理画面へ', "#" if current_user_admin?
+            .col-xs-4
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        li.user-footer
+
+    /- if user_signed_in?
       li = link_to 'ログアウト', destroy_user_session_path, method: :delete
-    /- else
-      li = link_to 'ログイン', new_user_session_path
+
