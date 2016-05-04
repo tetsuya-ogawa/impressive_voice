@@ -1,11 +1,11 @@
 .nested-fields
-  .entry-forms
-    .form-group
-      = f.label 'メンバー名'
-      = f.collection_select :member_id, Member.all, "id", "name", {prompt: 'メンバーの選択'}, class: 'form-control'
-      /p = f.collection_select :member_id, @member_search.search, "id", "name",{}, class: 'search form-control'
-
-    = link_to_remove_association f, class: 'btn btn-default btn-block entry-forms-delete' do
-      | 削除
-      /i.fa.fa-minus-square.nested_form.remove
+  .form-group
+    .row
+      .col-xs-9
+        = f.collection_select :member_id, Member.all, "id", "name", {prompt: 'メンバーの選択'}, class: 'form-control'
+        /p = f.collection_select :member_id, @member_search.search, "id", "name",{}, class: 'search form-control'
+      .col-xs-3
+        = link_to_remove_association f, class: 'btn btn-default btn-block entry-forms-delete' do
+          | 削除
+        /i.fa.fa-minus-square.nested_form.remove
 

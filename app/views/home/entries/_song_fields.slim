@@ -1,12 +1,14 @@
 .nested-fields
-  .entry-forms
-    .form-group
-      = f.label :name
-      = f.text_field :name, {class: 'form-control' ,  placeholder: "演奏する曲名" }
-    .form-group
-      = f.label :time
-      = f.number_field :time, {class: 'form-control',  placeholder: "(分) ※半角数字で入力"}
+  .row
+    .col-xs-6
+      .form-group
+        /= f.label :name
+        = f.text_field :name, {class: 'form-control' ,  placeholder: "演奏する曲名" }
+    .col-xs-3
+      .form-group
+        /= f.label '曲長'
+        = f.number_field :time, {class: 'form-control',  placeholder: "(分)"}
 
-
-    = link_to_remove_association f, class: 'btn btn-default btn-block entry-forms-delete' do
-      | 削除
+    .col-xs-3
+      = link_to_remove_association f, class: 'btn btn-default btn-block entry-forms-delete' do
+        | 削除
