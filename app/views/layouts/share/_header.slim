@@ -2,14 +2,28 @@ header.main-header
   a.logo href=""
     span.logo-lg
       b> Impressive Voice
-  nav.navbar.navbar-static-top role="navigation"
+  nav.navbar.navbar-static-top style="height: 50px" role="navigation"
 
     /! Sidebar toggle button
     a.sidebar-toggle data-toggle="offcanvas" href="#" role="button"
       span.sr-only Toggle navigation
 
+    ul.header-right
+      //Todo 後でヘルパーメソッドで整理する
+      - if current_user.present?
+        ul.dropdown
+          li
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              i.fa.fa-caret-down style="margin-right: 5px;"
+              = current_user.name
+            </a>
+            ul.dropdown-menu style="left: -20px; width: 160px;"
+              li
+                = link_to 'ユーザー編集', edit_user_registration_path
+                = link_to '管理画面へ', admin_root_path if current_user_admin?
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete
     /! Navbar Right Menu
-    .navbar-custom-menu
+    /.navbar-custom-menu
       ul.nav.navbar-nav
         li.dropdown.user.user-menu
           a.dropdown-toggle data-toggle="dropdown" href="#"

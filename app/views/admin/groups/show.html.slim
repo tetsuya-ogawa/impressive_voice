@@ -8,11 +8,14 @@ table.table
     th メンバー (入学年度)
     td
       - @group.players.each do |player|
-        p = player.member.name + " （#{player.member.year}）"
+        p = player.member.name + " （#{player.member.year}）" if player.member.present?
   tr
     th セットリスト
     td
       -@group.songs.each do |song|
         p  = song.name
+  tr
+    th 備考
+    td = @group.note
 
 = link_to 'このバンドの編集する', edit_admin_group_path(@group)

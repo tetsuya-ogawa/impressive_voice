@@ -1,7 +1,7 @@
-= form_for [:admin, @group], url: {controller: 'admin/groups', action: action } do |f|
+= form_for [:admin,@group], url: {controller: 'admin/groups', action: action } do |f|
   - if @group.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@group.errors.count, "error")} prohibited this event from being saved:"
+      /h2 = "#{pluralize(@entry.errors.count, "件")} のエラーがあります"
       ul
         - @group.errors.full_messages.each do |message|
           li = message
@@ -11,38 +11,48 @@
 
     .form-group
       = f.label :event_id
-      = f.collection_select :event_id, Event.all, "id", "name",{},class: 'form-control'
+      = f.collection_select :event_id, Event.all, "id", "name", {prompt: 'エントリーするイベントの選択'} ,class: 'form-control'
 
     .form-group
       = f.label :name
-      = f.text_field :name, class: "form-control"
+      = f.text_field :name, {class: "form-control", placeholder: "バンド名の入力"}
 
     /input id="number_person" type="text"
     /input id="get" type="button" value="人数設定"
 
-    .form-group
-      =f.label :songs
-      #songs
-        =f.fields_for :songs do |s|
-          == render 'song_fields', f: s
-        .links
-          = link_to_add_association '曲の追加', f, :songs, class: 'btn btn-default'
+    .entry-forms
+      .form-group
+        =f.label 'セットリスト'
+        #songs
+          .row
+            .col-xs-6
+              = f.label '曲名'
+            .col-xs-3
+              = f.label '曲長'
+
+          =f.fields_for :songs do |s|
+            == render 'song_fields', f: s
+          .links
+            = link_to_add_association '曲の追加', f, :songs, class: 'btn btn-default btn-block '
+
+    .entry-forms
+      .form-group
+        = f.label 'メンバー'
+        #players
+          .row
+            = f.fields_for :players do |p|
+              .col-sm-4
+                == render 'player_fields', f: p
+          .links
+            = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do
+              | プレイヤーの追加
 
     .form-group
-      = f.label :players
-      #players
-        .row
-          = f.fields_for :players do |p|
-            .col-sm-4
-              == render 'player_fields', f: p
-        .links
-          = link_to_add_association f, :players, class: 'btn btn-default btn-block search_start' do
-            | プレイヤーの追加
-            /i.fa.fa-plus-square.nested_form.add
-
+      p 備考
+      = f.text_area :note, {class: "form-control", placeholder: "備考欄"}
 
     .box-footer
       .actions
-        = f.submit :submit, class: "btn btn-primary"
+        = f.submit 'エントリー', class: "btn btn-primary"
 
 
